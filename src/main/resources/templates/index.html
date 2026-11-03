@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stockify | Inventory Management</title>
+
+```
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    body {
+        background: #f4f6fb;
+        color: #263238;
+    }
+
+    header {
+        background: #172554;
+        color: white;
+        padding: 22px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    header span {
+        color: #60a5fa;
+    }
+
+    .container {
+        padding: 40px;
+    }
+
+    .welcome {
+        margin-bottom: 30px;
+    }
+
+    .welcome h2 {
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
+
+    .welcome p {
+        color: #64748b;
+    }
+
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+
+    .card {
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 3px 12px #00000010;
+    }
+
+    .card h3 {
+        color: #64748b;
+        margin-bottom: 15px;
+    }
+
+    .card h2 {
+        font-size: 32px;
+        color: #172554;
+    }
+
+    .actions {
+        margin-top: 35px;
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+    }
+
+    .actions h2 {
+        margin-bottom: 20px;
+    }
+
+    .btn {
+        display: inline-block;
+        background: #2563eb;
+        color: white;
+        text-decoration: none;
+        padding: 13px 22px;
+        margin: 5px;
+        border-radius: 7px;
+        cursor: pointer;
+        font-size: 15px;
+        border: none;
+    }
+
+    .btn:hover {
+        background: #1d4ed8;
+    }
+
+    footer {
+        text-align: center;
+        padding: 25px;
+        color: #64748b;
+    }
+
+    @media (max-width: 700px) {
+        .cards {
+            grid-template-columns: 1fr;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        header {
+            padding: 20px;
+        }
+    }
+</style>
+```
+
+</head>
+
+<body>
+
+<header>
+    <h1>Stock<span>ify</span></h1>
+    <p>Inventory Management System</p>
+</header>
+
+<div class="container">
+
+```
+<div class="welcome">
+    <h2>Welcome to Stockify! 👋</h2>
+    <p>Manage your products and stock in one place.</p>
+</div>
+
+<div class="cards">
+
+    <div class="card">
+        <h3>📦 Total Products</h3>
+        <h2 th:text="${totalProducts}">0</h2>
+    </div>
+
+    <div class="card">
+        <h3>📊 Available Stock</h3>
+        <h2 th:text="${availableStock}">0</h2>
+    </div>
+
+    <div class="card">
+        <h3>⚠️ Low Stock Items</h3>
+        <h2 th:text="${lowStockItems}">0</h2>
+    </div>
+
+</div>
+
+<div class="actions">
+    <h2>Quick Actions</h2>
+
+    <a href="/products" class="btn">View Products</a>
+    <a href="/products/add" class="btn">Add Product</a>
+    <a href="/stock" class="btn">Manage Stock</a>
+</div>
+```
+
+</div>
+
+<footer>
+    © 2026 Stockify. Inventory Management System.
+</footer>
+
+</body>
+</html>

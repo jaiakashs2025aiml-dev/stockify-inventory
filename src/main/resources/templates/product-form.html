@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product | Stockify</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            padding: 40px 20px;
+            background: #f4f6fb;
+            color: #263238;
+        }
+
+        .form-container {
+            max-width: 550px;
+            margin: auto;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 3px 15px #00000015;
+        }
+
+        h1 {
+            color: #172554;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 18px;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 25px;
+            padding: 13px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 7px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        .back {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            color: #2563eb;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="form-container">
+
+    <h1>➕ Add New Product</h1>
+
+    <form action="/products/save" method="post">
+
+        <label>Product Name</label>
+        <input type="text" name="productName"
+               placeholder="Enter product name" required>
+
+        <label>Price (₹)</label>
+        <input type="number" name="price"
+               placeholder="Enter price" min="0.01"
+               step="0.01" required>
+
+        <label>Quantity</label>
+        <input type="number" name="quantity"
+               placeholder="Enter quantity" min="0" required>
+
+        <label>Category</label>
+        <select name="categoryId" required>
+            <option value="">Select Category</option>
+            <option value="1">Electronics</option>
+            <option value="2">Accessories</option>
+            <option value="3">Furniture</option>
+            <option value="4">Stationery</option>
+        </select>
+
+        <button type="submit">Save Product</button>
+
+    </form>
+
+    <a href="/" class="back">← Back to Dashboard</a>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Error | Stockify</title>
+</head>
+<body style="font-family: Arial; text-align: center; padding: 80px;">
+
+    <h2 style="color: red;">Oops! Something went wrong.</h2>
+
+    <p th:text="${errorMessage}">
+        An unexpected error occurred.
+    </p>
+
+    <a href="/">Back to Dashboard</a>
+
+</body>
+</html>

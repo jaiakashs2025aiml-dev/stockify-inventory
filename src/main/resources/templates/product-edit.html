@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Edit Product | Stockify</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            background: #f4f6f9;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #263238;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-top: 7px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        button, .back {
+            display: inline-block;
+            padding: 12px 20px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 6px;
+            text-decoration: none;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        button {
+            background: #2563eb;
+            color: white;
+        }
+
+        .back {
+            background: #64748b;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2>Edit Product</h2>
+
+        <form th:action="@{/products/update}" method="post">
+
+            <input type="hidden"
+                   name="productId"
+                   th:value="${product.productId}">
+
+            <label>Product Name</label>
+            <input type="text"
+                   name="productName"
+                   th:value="${product.productName}"
+                   required>
+
+            <label>Price (₹)</label>
+            <input type="number"
+                   name="price"
+                   step="0.01"
+                   min="0"
+                   th:value="${product.price}"
+                   required>
+
+            <label>Quantity</label>
+            <input type="number"
+                   name="quantity"
+                   min="0"
+                   th:value="${product.quantity}"
+                   required>
+
+            <label>Category ID</label>
+            <input type="number"
+                   name="categoryId"
+                   min="1"
+                   th:value="${product.categoryId}"
+                   required>
+
+            <button type="submit">Update Product</button>
+
+            <a href="/products" class="back">Cancel</a>
+
+        </form>
+
+    </div>
+
+</body>
+</html>
